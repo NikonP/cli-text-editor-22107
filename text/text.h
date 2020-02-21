@@ -39,7 +39,7 @@ void append_line(text txt, const char *contents);
 
 /**
  * Обрабатывает текст, применяя заданную функцию к каждой строке
- * 
+ *
  * @param txt текст
  * @param process функция-обработчик
  * @returns none
@@ -50,10 +50,16 @@ void process_forward(
     void *data
 );
 
+void process_backward(
+    text txt,
+    void (*process)(int index, char *contents, int cursor_position, void *data),
+    void *data
+);
+
 
 /**
  * Удаляет весь текст
- * 
+ *
  * @param txt текст
  * @returns none
  */
