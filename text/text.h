@@ -12,6 +12,12 @@
 #define MAXLINE 255
 
 /**
+ * Коды возврата для функций перемещения курсора
+ */
+#define SUCCESS 0
+#define FAILED_NO_LINE 1
+
+/**
  * Абстрактный тип текстовых объектов
  */
 typedef struct _list *text;
@@ -64,5 +70,7 @@ void process_backward(
  * @returns none
  */
 void remove_all(text txt);
+
+int move_next_line_begin(text txt);
 
 #endif

@@ -26,7 +26,7 @@ int main()
 
     /* Цикл обработки команд */
     while (1) {
-        printf("ed > ");
+        printf("\ned > ");
 
         /* Получаем команду */
         fgets(cmdline, MAXLINE, stdin);
@@ -72,6 +72,11 @@ int main()
 
         if(strcmp(cmd, "showreveven") == 0) {
             showreveven(txt);
+            continue;
+        }
+
+        if(strcmp(cmd, "mnlb") == 0) {
+            move_next_line_begin(txt);
             continue;
         }
 
