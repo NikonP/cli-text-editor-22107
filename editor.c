@@ -70,6 +70,11 @@ int main()
             continue;
         }
 
+        if(strcmp(cmd, "showreveven") == 0) {
+            showreveven(txt);
+            continue;
+        }
+
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);
     }

@@ -25,6 +25,18 @@ void show(text txt);
  */
 void load(text txt, char *filename);
 
+/**
+ * Сохраняет содержимое указанного файла
+ */
 void save(text txt, char *filename);
+
+/**
+ * Выводит содержимое указанного файла на экран в обратном порядке
+ * пропуская нечётные строки
+ */
+void showreveven(text txt);
+
+#define CURSOR_CHAR '|'
+char* set_cursor(char* contents, int cursor);
 
 #endif
