@@ -35,17 +35,13 @@ static void show_line(int index, char *contents, int cursor, void *data)
     UNUSED(index);
     UNUSED(data);
 
+    char* to_print = contents;
+
     /* Проверяем стоит ли курсор на текущей строке */
     if(cursor != -1) {
-        /* Устанавливаем курсор в заданную позицию в строке*/
-        contents[cursor] = '|';
-
-        /* Если курсор в конце строки, то после него необходимо добавить \n */
-        if(cursor == (int) strlen(contents) - 1) {
-            contents[cursor + 1] = '\n';
-        }
+        to_print = set_cursor(contents, cursor);
     }
 
     /* Выводим строку на экран */
-    printf("%s", contents);
+    printf("%s", to_print);
 }
