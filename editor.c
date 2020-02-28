@@ -76,6 +76,19 @@ int main()
             continue;
         }
 
+        if(strcmp(cmd, "m") == 0) {
+            if ((arg = strtok(NULL, " \n")) == NULL) {
+                fprintf(stderr, "Usage: m line_number position\n");
+            } else {
+                if ((second_arg = strtok(NULL, "\0")) == NULL) {
+                    fprintf(stderr, "Usage: m line_number position\n");
+                } else {
+                    move_cursor(txt, atoi(arg), atoi(second_arg));
+                }
+            }
+            continue;
+        }
+
         if(strcmp(cmd, "mnlb") == 0) {
             move_next_line_begin(txt);
             continue;
