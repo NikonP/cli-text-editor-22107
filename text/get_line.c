@@ -1,6 +1,9 @@
 #include "_text.h"
 
 node* get_line(text txt, int num) {
+    if(num < 0) {
+        return NULL;
+    }
     if(txt) {
         node* current_line = txt->begin;
         int current_line_num = 0;

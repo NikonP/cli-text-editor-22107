@@ -3,6 +3,8 @@
 int move_cursor(text txt, int line_num, int cursor_pos) {
     node* line = get_line(txt, line_num);
     if(line == NULL) {
+        txt->cursor->line = txt->end;
+        txt->cursor->position = strlen(txt->end->contents);
         return FAILED_NO_LINE;
     }
 
