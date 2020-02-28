@@ -100,7 +100,7 @@ int main()
             if (arg == NULL || second_arg == NULL) {
                 fprintf(stderr, "Usage: m line_number position\n");
             } else {
-		move_cursor(txt, atoi(arg), atoi(second_arg));
+		m(txt, atoi(arg), atoi(second_arg));
             }
             continue;
         }

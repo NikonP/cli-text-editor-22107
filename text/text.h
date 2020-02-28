@@ -78,7 +78,7 @@ void remove_all(text txt);
  * @param cursor_pos номер позиции в строке
  * @returns код исполнения 
  */
-int move_cursor(text txt, int line_num, int cursor_pos);
+int m(text txt, int line_num, int cursor_pos);
 
 /**
  * Перемещаем курсор в заданную позицию
