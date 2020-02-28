@@ -36,6 +36,11 @@ void save(text txt, char *filename);
  */
 void showreveven(text txt);
 
+/**
+ * Выводит содержимое указанного файла на экран, опуская чётные строки
+ */
+void showodd(text txt);
+
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);
 

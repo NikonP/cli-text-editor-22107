@@ -71,10 +71,44 @@ void process_backward(
  */
 void remove_all(text txt);
 
+/**
+ * Перемещаем курсор в заданную позицию
+ * @param txt текст
+ * @param line_num номер строки
+ * @param cursor_pos номер позиции в строке
+ * @returns код исполнения 
+ */
 int move_cursor(text txt, int line_num, int cursor_pos);
 
+/**
+ * Перемещаем курсор в заданную позицию
+ * @param txt текст
+ * @returns код исполнения 
+ */
 int move_next_line_begin(text txt);
 
+/**
+ * Перемещаем курсор в заданную позицию
+ * @param txt текст
+ * @param line_number номер строки 
+ * @param to_add текст строки
+ * @returns код исполнения 
+ */
 int add_line_after(text txt, int line_number, char* to_add);
+
+/**
+ * Перемещаем курсор в заданную позицию в текущей строке
+ * @param txt текст
+ * @param arg1 номер позиции в строке
+ * @returns код исполнения 
+ */
+int mp(text txt, int arg1);
+
+/**
+ * Объединяет строку с курсором со следующей
+ * @param txt текст
+ * @returns код исполнения 
+ */
+int j(text txt);
 
 #endif
