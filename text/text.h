@@ -12,7 +12,7 @@
 #define MAXLINE 255
 
 /**
- * Коды возврата для функций перемещения курсора
+ * Коды возврата для функций библиотеки text
  */
 #define SUCCESS 0
 #define FAILED_NO_LINE 1
@@ -72,5 +72,7 @@ void process_backward(
 void remove_all(text txt);
 
 int move_next_line_begin(text txt);
+
+int add_line_after(text txt, int line_number, char* to_add);
 
 #endif

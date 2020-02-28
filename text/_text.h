@@ -1,6 +1,6 @@
 /**
  * _text.h -- внутренние структуры представления текста
- * 
+ *
  * Этот файл не должен включаться в клиентские модули
  *
  * Copyright (c) 2017, Alexander Borodin <aborod@petrsu.ru>
@@ -20,9 +20,9 @@
 #include "text.h"
 
 /**
- * @struct 
+ * @struct
  * @brief Представление одной строки текста как элемента линейного списка
- * 
+ *
  */
 typedef struct _node {
     char contents[MAXLINE + 1]; /**< содержимое строки текста */
@@ -32,9 +32,9 @@ typedef struct _node {
 
 
 /**
- * @struct 
+ * @struct
  * @brief Представление курсора
- * 
+ *
  */
 typedef struct _crsr {
     struct _node *line;         /**< указатель на строку с курсором */
@@ -43,9 +43,9 @@ typedef struct _crsr {
 
 
 /**
- * @struct 
+ * @struct
  * @brief Линейный двунаправленный список строк текста
- * 
+ *
  */
 typedef struct _list {
     size_t length;              /**< число строк текста */
@@ -55,5 +55,7 @@ typedef struct _list {
 } list;
 
 typedef struct _list *text;
+
+node* get_line(text txt, int num);
 
 #endif

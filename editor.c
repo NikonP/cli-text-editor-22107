@@ -20,6 +20,7 @@ int main()
     char cmdline[MAXLINE + 1];
     char *cmd;
     char *arg;
+    char *second_arg;
 
     /* Создаем объект для представления текста */
     text txt = create_text();
@@ -77,6 +78,19 @@ int main()
 
         if(strcmp(cmd, "mnlb") == 0) {
             move_next_line_begin(txt);
+            continue;
+        }
+
+        if(strcmp(cmd, "p") == 0) {
+            if ((arg = strtok(NULL, " \n")) == NULL) {
+                fprintf(stderr, "Usage: p line text\n");
+            } else {
+                if ((second_arg = strtok(NULL, "\0")) == NULL) {
+                    fprintf(stderr, "Usage: p line text\n");
+                } else {
+                    add_line_after(txt, atoi(arg), second_arg);
+                }
+            }
             continue;
         }
 

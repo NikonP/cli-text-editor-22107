@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "common.h"
 #include "text/text.h"
+#include <stdio.h>
 
 char* set_cursor(char* contents, int cursor) {
     char* copy = (char*) malloc(sizeof(char) * MAXLINE);
@@ -10,10 +11,14 @@ char* set_cursor(char* contents, int cursor) {
     strcpy(copy, contents);
     strcpy(copy + cursor + 1, contents + cursor);
 
-    copy[cursor] = CURSOR_CHAR;
+    if(cursor != 0) {
+        copy[cursor - 1] = CURSOR_CHAR;
+    } else {
+        copy[cursor] = CURSOR_CHAR;
+    }
 
-    if(cursor == (int) strlen(copy) - 1) {
-        copy[cursor + 1] = '\n';
+    if(cursor == (int) strlen(copy)) {
+        copy[cursor] = '\n';
     }
 
     return copy;

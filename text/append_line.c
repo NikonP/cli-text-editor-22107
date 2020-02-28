@@ -49,17 +49,22 @@ static node *create_node(const char *contents)
 
     node *nd;
 
+    unsigned int str_length = strlen(contents);
+
     if ((nd = (node *) malloc(sizeof(node))) == NULL) {
         fprintf(stderr, "Not enough memory!\n");
         exit(EXIT_FAILURE);
     }
 
-    if (strlen(contents) > MAXLINE) {
+    if (str_length > MAXLINE) {
         fprintf(stderr, "Too long line!\n");
         exit(EXIT_FAILURE);
     }
 
     strncpy(nd->contents, contents, MAXLINE);
+    if (nd->contents[str_length - 1] != '\n') {
+        nd->contents[str_length] = '\n';
+    }
     nd->contents[MAXLINE] = '\0';
     nd->previous = NULL;
     nd->next = NULL;
