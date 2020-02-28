@@ -8,17 +8,15 @@
 char* set_cursor(char* contents, int cursor) {
     char* copy = (char*) malloc(sizeof(char) * MAXLINE);
 
+    int copy_length = (int) strlen(copy);
+
     strcpy(copy, contents);
-    strcpy(copy + cursor + 1, contents + cursor);
+    strcpy(copy + cursor, contents + cursor - 1);
 
-    if(cursor != 0) {
-        copy[cursor - 1] = CURSOR_CHAR;
-    } else {
-        copy[cursor] = CURSOR_CHAR;
-    }
+    copy[cursor - 1] = CURSOR_CHAR;
 
-    if(cursor == (int) strlen(copy)) {
-        copy[cursor] = '\n';
+    if(cursor == copy_length) {
+        copy[cursor + 1] = '\n';
     }
 
     return copy;

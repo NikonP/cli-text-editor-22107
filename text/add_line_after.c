@@ -10,6 +10,8 @@ int add_line_after(text txt, int line_number, char* to_add)
         if(line->next) {
             new_node->next = line->next;
         }
+        new_node->previous = line;
+        line->next->previous = new_node;
         line->next = new_node;
         txt->length++;
         return SUCCESS;

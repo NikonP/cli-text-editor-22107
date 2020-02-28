@@ -71,6 +71,8 @@ void process_backward(
  */
 void remove_all(text txt);
 
+int move_cursor(text txt, int line_num, int cursor_pos);
+
 int move_next_line_begin(text txt);
 
 int add_line_after(text txt, int line_number, char* to_add);
