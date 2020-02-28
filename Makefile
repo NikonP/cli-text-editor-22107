@@ -25,7 +25,7 @@ OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 
 # Build editor
 editor: $(OBJECTS) text
-	$(LD) $(LDFLAGS) -o build/editor $(OBJECTS) -L./text -ltext
+	$(LD) $(LDFLAGS) -o editor $(OBJECTS) -L./text -ltext
 
 # Build text processing library
 .PHONY: text
@@ -40,4 +40,4 @@ text:
 .PHONY: clean
 clean:
 	cd text && $(MAKE) $@
-	rm -rf *.o build/editor
+	rm -rf *.o editor
