@@ -1,7 +1,9 @@
 /**
  * editor.c -- строковый текстовый редактор
  *
- * Copyright (c) 2017, Alexander Borodin <aborod@petrsu.ru>
+ * Copyright (c) 2020, Alexander Borodin <aborod@petrsu.ru>
+ *                     Nikon Podgorny <podgorny@cs.petrsu.ru>
+ *                     and others from gr. 22107 (add your name if you want)
  *
  * This code is licensed under a MIT-style license.
  */
@@ -21,7 +23,7 @@ int main()
     char *cmd;
     char *arg;
     char *second_arg;
-    
+
     /* Создаем объект для представления текста */
     text txt = create_text();
 
@@ -118,7 +120,18 @@ int main()
         }
 
         if(strcmp(cmd, "mnlb") == 0) {
-            move_next_line_begin(txt);
+            int status = move_next_line_begin(txt);
+            switch (status) {
+                case SUCCESS:
+                    break;
+                case FAILED_NO_LINE:
+                    fprintf(stderr, "Next line didn't exist\n");
+                    break;
+                default:
+                    fprintf(stderr, "Unhandled error!\n");
+                    exit(EXIT_FAILURE);
+                    break;
+            }
             continue;
         }
 
@@ -135,7 +148,18 @@ int main()
                 if ((second_arg = strtok(NULL, "\0")) == NULL) {
                     fprintf(stderr, "Usage: p line text\n");
                 } else {
-                    add_line_after(txt, atoi(arg), second_arg);
+                    int status = add_line_after(txt, atoi(arg), second_arg);
+                    switch (status) {
+                        case SUCCESS:
+                            break;
+                        case FAILED_NO_LINE:
+                            fprintf(stderr, "No line with number %d\n", atoi(arg));
+                            break;
+                        default:
+                            fprintf(stderr, "Unhandled error!\n");
+                            exit(EXIT_FAILURE);
+                            break;
+                    }
                 }
             }
             continue;

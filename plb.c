@@ -13,6 +13,7 @@
 #include <assert.h>
 #include "common.h"
 #include "text/text.h"
+
 typedef struct _pair {
 	int a;
 	int b;
@@ -43,8 +44,8 @@ static void plb_on_line(int index, char *contents, int cursor, void *data)
 	UNUSED(data);
 
     if(cursor != -1){
-		for(int i = 0; i < cursor; i++)
+		for(int i = 0; i < cursor; i++) {
 			printf("%c", contents[i]);
-
+		}
   	}
 }

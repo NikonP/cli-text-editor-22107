@@ -1,7 +1,23 @@
+/**
+ * add_line_after.c -- вставка новой строки после строки с заданным номеров
+ * реализация команды "p номер текст"
+ *
+ * Copyright (c) 2020, Nikon Podgorny <podgorny@cs.petrsu.ru>
+ *
+ * This code is licensed under a MIT-style license.
+ */
+
 #include "_text.h"
 
 static node *create_node(const char *contents);
 
+/**
+ * Добавляет одну строку к тексту после строки с указанным номером
+ * @param txt текст
+ * @param line_number номер после которого нажо вставить строку
+ * @param to_add текст новой строки
+ * @returns статус
+ */
 int add_line_after(text txt, int line_number, char* to_add)
 {
     node* line = get_line(txt, line_number);
@@ -22,6 +38,9 @@ int add_line_after(text txt, int line_number, char* to_add)
     }
 }
 
+/*
+ * Выделяет память под один элемент списка
+ */
 static node *create_node(const char *contents)
 {
     assert(contents != NULL);
