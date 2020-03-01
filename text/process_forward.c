@@ -46,6 +46,3 @@ void process_forward(
         index++;
     }
 }
-int getlength1(text txt){
-	return txt->length;
-} 
