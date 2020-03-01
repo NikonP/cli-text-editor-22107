@@ -21,7 +21,8 @@ int main()
     char *cmd;
     char *arg;
     char *second_arg;
-
+	int curS = 0;
+	int curC = 0;
     /* Создаем объект для представления текста */
     text txt = create_text();
 
@@ -100,6 +101,7 @@ int main()
             if (arg == NULL || second_arg == NULL) {
                 fprintf(stderr, "Usage: m line_number position\n");
             } else {
+			
 		m(txt, atoi(arg), atoi(second_arg));
             }
             continue;
@@ -139,7 +141,22 @@ int main()
             }
             continue;
         }
-
+	if (strcmp(cmd, "showclassified") == 0) {
+            showclassified(txt);
+            continue;
+    }
+	if (strcmp(cmd, "plb") == 0) {
+			plb(txt);
+			printf("\n");
+            continue;
+        }
+	if (strcmp(cmd, "s") == 0) {
+			s(txt);
+			printf("\n");
+            continue;
+    }
+	
+	
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);
     }

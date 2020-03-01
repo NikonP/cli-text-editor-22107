@@ -103,6 +103,8 @@ int add_line_after(text txt, int line_number, char* to_add);
  * @returns код исполнения 
  */
 int mp(text txt, int arg1);
+int getlength1(text txt);
+void s(text txt);
 
 /**
  * Объединяет строку с курсором со следующей
