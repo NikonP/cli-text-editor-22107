@@ -34,20 +34,17 @@ void plb(text txt)
  */
 static void plb_on_line(int index, char *contents, int cursor, void *data)
 {
-	//pair p1 = (pair)data;
     /* Функция обработчик всегда получает существующую строку */
     assert(contents != NULL);
-	//		printf("%d %lld\n", index, ind);
-    if(cursor != -1){
-  		/* Декларируем неиспользуемые параметры */
-		
- 		//UNUSED(index);
- 		UNUSED(cursor);
-	    //UNUSED(data);
 
+	/* Декларируем неиспользуемые параметры */
+	UNUSED(index);
+	UNUSED(cursor);
+	UNUSED(data);
+
+    if(cursor != -1){
 		for(int i = 0; i < cursor; i++)
 			printf("%c", contents[i]);
-		
+
   	}
 }
-

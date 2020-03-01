@@ -21,14 +21,13 @@ int main()
     char *cmd;
     char *arg;
     char *second_arg;
-	int curS = 0;
-	int curC = 0;
+    
     /* Создаем объект для представления текста */
     text txt = create_text();
 
     /* Вывод сообщения о командах */
     printf("\nEnter help for instructions\n");
-    
+
     /* Цикл обработки команд */
     while (1) {
         printf("\ned > ");
@@ -57,7 +56,7 @@ int main()
 	    fclose(in);
             continue;
         }
-	
+
         /* Загружаем содержимое файла, заданного параметром */
         if (strcmp(cmd, "load") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
@@ -89,7 +88,7 @@ int main()
             showodd(txt);
             continue;
         }
-	
+
         if(strcmp(cmd, "showreveven") == 0) {
             showreveven(txt);
             continue;
@@ -101,7 +100,7 @@ int main()
             if (arg == NULL || second_arg == NULL) {
                 fprintf(stderr, "Usage: m line_number position\n");
             } else {
-			
+
 		m(txt, atoi(arg), atoi(second_arg));
             }
             continue;
@@ -117,7 +116,7 @@ int main()
             }
             continue;
         }
-	
+
         if(strcmp(cmd, "mnlb") == 0) {
             move_next_line_begin(txt);
             continue;
@@ -128,7 +127,7 @@ int main()
 	    j(txt);
             continue;
         }
-	
+
         if(strcmp(cmd, "p") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
                 fprintf(stderr, "Usage: p line text\n");
@@ -155,8 +154,8 @@ int main()
 			printf("\n");
             continue;
     }
-	
-	
+
+
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);
     }

@@ -31,7 +31,7 @@ static void showclassified_line(int index, char *contents, int cursor, void *dat
     UNUSED(cursor);
     UNUSED(data);
 
-	for(int i = 0; i < strlen(contents); i++){
+	for(unsigned int i = 0; i < strlen(contents); i++){
 		if(contents[i] != ' ' && contents[i] != '\n') {
 			printf("*");
 		} else {
