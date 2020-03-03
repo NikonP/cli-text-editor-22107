@@ -84,6 +84,7 @@ int move_next_line_begin(text txt);
 int add_line_after(text txt, int line_number, char* to_add);
 int mp(text txt, int arg1);
 void s(text txt);
+void r1ne(text txt);
 int j(text txt);
 void y_line(text txt, const char *contents);
 void line_to_end(text txt);

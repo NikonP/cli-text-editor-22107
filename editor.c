@@ -84,6 +84,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "showupfirst") == 0) {
+            showupfirst(txt);
+            continue;
+        }
+	
         if (strcmp(cmd, "showodd") == 0) {
             showodd(txt);
             continue;
@@ -111,6 +116,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "mle") == 0) {
+            mle(txt);
+            continue;
+        }
+	
 	if (strcmp(cmd, "mp") == 0) {
 	    arg = strtok(NULL, " \n");
 	    if (arg == NULL) {
@@ -137,6 +147,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "r1ne") == 0) {
+            r1ne(txt);
+            continue;
+        }
+	
 	if (strcmp(cmd, "j") == 0) {
 	    j(txt);
             continue;

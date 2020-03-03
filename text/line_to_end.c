@@ -13,19 +13,25 @@
  * @returns none
  */
 void line_to_end(text txt) {
+
+    node *current = txt->cursor->line;
+    
    /* Случай, когда текущая строка - начало текста */
-   if(txt->cursor->line == txt->begin) {
-	txt->begin = txt->cursor->line->next; // Начало текста теперь следующая строка
-	append_line(txt, txt->cursor->line->contents); // Переносим строку в конец
+   if(current == txt->begin) {
+	txt->begin = current->next; // Начало текста теперь следующая строка
+	txt->begin->previous = NULL; // Предыдущей строки теперь нет
+	append_line(txt, current->contents); // Переносим строку в конец
 	}
    else {
-      if(txt->cursor->line!=txt->end) { 
+      if(current != txt->end) { 
 	   /* Редактирование связей, чтобы убрать текущую строку из списка */
-	   txt->cursor->line->previous->next = txt->cursor->line->next; 
-	   txt->cursor->line->next->previous = txt->cursor->line->previous;
- 	   append_line(txt, txt->cursor->line->contents); // Переносим строку в конец
+	   current->previous->next = current->next; 
+	   current->next->previous = current->previous;
+ 	   append_line(txt, current->contents); // Переносим строку в конец
 	   }
 	}
+   free(current);
+   txt->length--;
 }
 
 
