@@ -34,8 +34,8 @@ int m(text txt, int arg1, int arg2)
         printf("Numbering of positions in a line starts from 0\n");
         return 0;
     }
-    if (arg2 > (int) strlen(current->contents) - 2) {
-        printf("There is no such position in the line\nLast position: %d\n", (int) strlen(current->contents) - 2);
+    if (arg2 > (int) strlen(current->contents) - 1) {
+        printf("There is no such position in the line\nLast position: %d\n", (int) strlen(current->contents) - 1);
         return 0;
     }
 

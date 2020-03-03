@@ -66,6 +66,7 @@ static node *create_node(const char *contents)
         nd->contents[str_length] = '\n';
     }
     nd->contents[MAXLINE] = '\0';
+    nd->contents[strlen(contents) + 1] = '\n';
     nd->previous = NULL;
     nd->next = NULL;
 

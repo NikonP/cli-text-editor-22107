@@ -15,34 +15,20 @@
  * корректно подавляя предупреждение вида "unused parameter" */
 #define UNUSED(x) (void)(x)
 
-/**
- * Выводит содержимое указанного файла на экран
- */
+
 void show(text txt);
-
-/**
- * Загружает содержимое указанного файла
- */
 void load(text txt, char *filename);
-
-/**
- * Сохраняет содержимое указанного файла
- */
 void save(text txt, char *filename);
 
-/**
- * Выводит содержимое указанного файла на экран в обратном порядке
- * пропуская нечётные строки
- */
+void showodd(text txt);
 void showreveven(text txt);
-
 void showclassified(text txt);
+void showwordbeginnings(text txt);
+
 int getlength(text txt);
 void plb(text txt);
-/**
- * Выводит содержимое указанного файла на экран, опуская чётные строки
- */
-void showodd(text txt);
+void y(text txt, char *line);
+void ce(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);

@@ -79,13 +79,11 @@ int main()
             continue;
         }
 
-        /* Выводим текст */
         if (strcmp(cmd, "show") == 0) {
             show(txt);
             continue;
         }
 
-	/* Выводим текст, опуская чётные строки */
         if (strcmp(cmd, "showodd") == 0) {
             showodd(txt);
             continue;
@@ -93,6 +91,11 @@ int main()
 
         if(strcmp(cmd, "showreveven") == 0) {
             showreveven(txt);
+            continue;
+        }
+
+        if (strcmp(cmd, "showwordbeginnings") == 0) {
+            showwordbeginnings(txt);
             continue;
         }
 
@@ -108,7 +111,6 @@ int main()
             continue;
         }
 
-        /* Перемещение курсора в заданную позицию в текущей строке */
 	if (strcmp(cmd, "mp") == 0) {
 	    arg = strtok(NULL, " \n");
 	    if (arg == NULL) {
@@ -135,7 +137,6 @@ int main()
             continue;
         }
 
-	/* Объединяет строку с курсором со следующей */
 	if (strcmp(cmd, "j") == 0) {
 	    j(txt);
             continue;
@@ -167,7 +168,7 @@ int main()
 	if (strcmp(cmd, "showclassified") == 0) {
             showclassified(txt);
             continue;
-    }
+	}
 	if (strcmp(cmd, "plb") == 0) {
 			plb(txt);
 			printf("\n");
@@ -177,7 +178,21 @@ int main()
 			s(txt);
 			printf("\n");
             continue;
-    }
+	}
+
+        if (strcmp(cmd, "ce") == 0) {
+            ce(txt);
+            continue;
+        }
+
+	if (strcmp(cmd, "y") == 0) {
+            if ((arg = strtok(NULL, " \n")) == NULL) {
+                fprintf(stderr, "Usage: y line\n");
+            } else {
+                y(txt, arg);
+            }
+            continue;
+        }
 
 
         /* Если команда не известна */
