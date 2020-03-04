@@ -17,17 +17,19 @@ void mwbb(text txt)
         fprintf(stderr, "There are already no any lines in the text!\n");
         return;
     } 
-   int i = txt->cursor->position;
-   int flag = 0;
-   if (txt->cursor->line->contents[i] == '\0' || txt->cursor->line->contents[i] == ' '){
-	printf("%s", "Сursor at the beginning of a word or cannot be moved\n");
-    }
-    else{
-	flag = 1;
-    	while( i != -1 && txt->cursor->line->contents[i] != ' ')
-		i--;		
-    }
-    if (flag)
-        i++;
+    int i = txt->cursor->position;
+   
+   if ((txt->cursor->line->contents[i] == '\0' && txt->cursor->line->contents[i-1] == ' ')
+       || (txt->cursor->line->contents[i] == ' ' && txt->cursor->line->contents[i-1] == ' ')){
+       printf("%s", "Сursor at the beginning of a word or cannot be moved\n");
+   }
+   else{
+        
+    	while( i != -1 && txt->cursor->line->contents[i-1] != ' ')
+	    i--;		
+   }
+   if (i == -1)
+       i++;
+   
     txt->cursor->position = i;
 }
