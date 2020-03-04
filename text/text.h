@@ -88,5 +88,7 @@ void r1ne(text txt);
 int j(text txt);
 void y_line(text txt, const char *contents);
 void line_to_end(text txt);
+void mwbb(text txt);
+void rc(text txt);
 
 #endif

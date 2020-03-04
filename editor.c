@@ -209,6 +209,21 @@ int main()
             continue;
         }
 
+	if (strcmp(cmd, "showonempty") == 0) {
+            showonempty(txt);
+            continue;
+        }
+
+	if (strcmp(cmd, "mwbb") == 0) {
+            mwbb(txt);
+            continue;
+        }
+
+	if (strcmp(cmd, "rc") == 0) {
+            rc(txt);
+            continue;
+        }
+
 
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);

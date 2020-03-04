@@ -31,6 +31,7 @@ void mle(text txt);
 void plb(text txt);
 void y(text txt, char *line);
 void ce(text txt);
+void showonempty(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);
