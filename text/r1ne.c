@@ -46,11 +46,19 @@ void r1ne(text txt)
 					printf("No non-empty string\n");
 					txt->length++;
 				}
-				else {	
-					if(txt->cursor->line == current) txt->cursor->line = current->next;
-					current->previous->next = current->next;
-					current->next->previous = current->previous;
-					free(current);
+				else {
+					if(current != txt->end) {	
+						if(txt->cursor->line == current) txt->cursor->line = current->next;
+						if(strlen(current->next->contents) == 1) txt->cursor->position = 1;
+						current->previous->next = current->next;
+						current->next->previous = current->previous;
+						free(current);
+					}
+					else {
+						txt->cursor->line = txt->end = current->previous;
+						txt->cursor->position = 1;
+						free(current);
+					}
 				}
 			txt->length--;
 			}

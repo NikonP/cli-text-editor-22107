@@ -210,7 +210,7 @@ int main()
         }
 
 	if (strcmp(cmd, "shownonempty") == 0) {
-            showonempty(txt);
+            shownonempty(txt);
             continue;
         }
 
