@@ -209,8 +209,8 @@ int main()
             continue;
         }
 
-	if (strcmp(cmd, "showonempty") == 0) {
-            showonempty(txt);
+	if (strcmp(cmd, "shownonempty") == 0) {
+            shownonempty(txt);
             continue;
         }
 
