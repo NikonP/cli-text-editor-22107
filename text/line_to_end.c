@@ -15,23 +15,28 @@
 void line_to_end(text txt) {
 
     node *current = txt->cursor->line;
+    int flag = 0;
     
    /* Случай, когда текущая строка - начало текста */
    if(current == txt->begin) {
 	txt->begin = current->next; // Начало текста теперь следующая строка
 	txt->begin->previous = NULL; // Предыдущей строки теперь нет
 	append_line(txt, current->contents); // Переносим строку в конец
-	}
+	flag++;
+   }
    else {
       if(current != txt->end) { 
 	   /* Редактирование связей, чтобы убрать текущую строку из списка */
 	   current->previous->next = current->next; 
 	   current->next->previous = current->previous;
  	   append_line(txt, current->contents); // Переносим строку в конец
-	   }
+	   flag++;
+      }
 	}
-   free(current);
-   txt->length--;
+   if (flag) {
+       free(current);
+       txt->length--;
+   }
 }
 
 

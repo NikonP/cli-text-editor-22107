@@ -209,7 +209,7 @@ int main()
             continue;
         }
 
-	if (strcmp(cmd, "showonempty") == 0) {
+	if (strcmp(cmd, "shownonempty") == 0) {
             showonempty(txt);
             continue;
         }
