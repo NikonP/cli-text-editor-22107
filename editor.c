@@ -1,5 +1,5 @@
 /**
-0;136;0c * editor.c -- строковый текстовый редактор
+ * editor.c -- строковый текстовый редактор
  *
  * Copyright (c) 2020, Alexander Borodin <aborod@petrsu.ru>
  *                     Nikon Podgorny <podgorny@cs.petrsu.ru>
@@ -104,6 +104,11 @@ int main()
             continue;
         }
 
+	if (strcmp(cmd, "showdigitsonly") == 0){
+	    showdigitsonly(txt);
+	    continue;
+	}
+	
 	if (strcmp(cmd, "showalphaonly") == 0) {
             showalpha(txt);
             continue;
@@ -131,7 +136,20 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "ple") == 0) {
+            pr_righter(txt);
+            continue;
+        }
 
+        if (strcmp(cmd, "p1") == 0) {
+            if ((arg = strtok(NULL, "\n")) == NULL) {
+                fprintf(stderr, "Usage: p1 <string>\n");
+            } else {
+                strcat(arg, "\n");
+                place_first(txt, arg);
+            }
+            continue;
+        }
 	
 	if (strcmp(cmd, "mp") == 0) {
 	    arg = strtok(NULL, " \n");
@@ -159,6 +177,24 @@ int main()
             continue;
         }
 
+      	if (strcmp(cmd, "pn") == 0) {
+	    if ((arg = strtok(NULL, "\n")) == NULL){
+		fprintf(stderr,"Usage: line\n");
+		continue;
+	    } 
+	    pn(txt, arg);
+            continue;
+	}
+
+	if (strcmp(cmd,"mklb")==0){
+	    if ((arg = strtok(NULL, " \n")) == NULL){
+		fprintf(stderr,"Usage: line number\n");
+		continue;
+	    }
+	    mklb(txt, atoi(arg));
+	    continue;
+	}
+	
         if (strcmp(cmd, "r1ne") == 0) {
             r1ne(txt);
             continue;

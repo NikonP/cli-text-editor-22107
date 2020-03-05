@@ -98,5 +98,11 @@ void get_current(
     );
 void move_line(text txt, int old_pos, int new_pos);
 void add_begin(text txt, char* newline);
+void pn(text txt, char* mystring);
+void move(
+    text txt,
+    int line_cursor,
+    int position_cursor
+    );
 
 #endif

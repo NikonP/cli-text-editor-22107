@@ -1,0 +1,31 @@
+ /**
+ * mklb.c -- функция перемещения курсора в начало заданной строки
+ * 
+ * Copyright (c) 2020, Svetova Kristina  <ksvetova@cs.petrsu.ru>
+ *
+ * This code is licensed under a MIT-style license.
+ */
+
+#include <stdio.h>
+#include <assert.h>
+#include "common.h"
+#include "text/text.h"
+
+static void search(int index, char *contents, int cursor, void *data);
+
+void mklb(text txt,int line)
+{
+	int* line1 = &line;
+	move(txt, line, 0);
+}
+
+static void search(int index, char *contents, int cursor, void *data)
+{
+	
+    int* number = (int*)data;
+    int number1 =*number;
+    assert(contents != NULL);
+  
+
+    UNUSED(index);
+}
