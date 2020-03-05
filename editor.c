@@ -103,6 +103,11 @@ int main()
             showlastnonspace(txt);
             continue;
         }
+
+	if (strcmp(cmd, "showalphaonly") == 0) {
+            showalpha(txt);
+            continue;
+        }
 	
         if (strcmp(cmd, "showwordbeginnings") == 0) {
             showwordbeginnings(txt);
@@ -125,6 +130,8 @@ int main()
             mle(txt);
             continue;
         }
+
+
 	
 	if (strcmp(cmd, "mp") == 0) {
 	    arg = strtok(NULL, " \n");

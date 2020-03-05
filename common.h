@@ -26,6 +26,7 @@ void showreveven(text txt);
 void showclassified(text txt);
 void shownumspaces(text txt);
 void showlastnonspace(text txt);
+void showalpha(text txt);
 void showwordbeginnings(text txt);
 
 int getlength(text txt);
@@ -36,6 +37,8 @@ void insert(text txt, char *contents);
 void ce(text txt);
 void shownonempty(text txt);
 void copy_begin(text txt);
+void pr_righter(text txt);
+void place_first(text txt, char* line);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);

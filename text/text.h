@@ -97,5 +97,6 @@ void get_current(
     void *data
     );
 void move_line(text txt, int old_pos, int new_pos);
+void add_begin(text txt, char* newline);
 
 #endif
