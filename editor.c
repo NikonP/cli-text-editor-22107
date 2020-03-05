@@ -43,14 +43,13 @@ int main()
         }
 
         /* Распознаем поддерживаемую команду */
-
-        /* Завершаем работу редактора */
+	
+	/* Базовые команды */
         if (strcmp(cmd, "quit") == 0) {
             fprintf(stderr, "Bye!\n");
             break;
-        }
-
-	/* Список команд */
+	}
+	
         if (strcmp(cmd, "help") == 0) {
 	    FILE *in = fopen("commands.txt", "r");
 	    while (fgets(cmdline, MAXLINE, in))
@@ -58,18 +57,16 @@ int main()
 	    fclose(in);
             continue;
         }
-
-        /* Загружаем содержимое файла, заданного параметром */
+	
         if (strcmp(cmd, "load") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
                 fprintf(stderr, "Usage: load filename\n");
             } else {
                 load(txt, arg);
             }
-            continue;
+	    continue;
         }
 
-        /* Загружаем содержимое файла, заданного параметром */
         if (strcmp(cmd, "save") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
                 fprintf(stderr, "Usage: save filename\n");
@@ -84,128 +81,39 @@ int main()
             continue;
         }
 
-	if (strcmp(cmd, "showrev") == 0) {
-            showrev(txt);
-            continue;
-        }
-
-        if (strcmp(cmd, "showupper") == 0) {
-            showupper(txt);
-            continue;
-        }
-	
-	if (strcmp(cmd, "showupfirst") == 0) {
-            showupfirst(txt);
-            continue;
-        }
-	
-        if (strcmp(cmd, "showodd") == 0) {
-            showodd(txt);
-            continue;
-        }
-
-        if(strcmp(cmd, "showreveven") == 0) {
-            showreveven(txt);
-            continue;
-        }
-
-        if (strcmp(cmd, "showlastnonspace") == 0) {
-            showlastnonspace(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "showdigitsonly") == 0){
-	    showdigitsonly(txt);
-	    continue;
-	}
-
-	if (strcmp(cmd, "shownumspaces") == 0) {
-            shownumspaces(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "showtrimmedfromstart") == 0) {
-            showtrimmedfromstart(txt);
-            continue;
-        }
-	
-	if (strcmp(cmd, "showalphaonly") == 0) {
-            showalpha(txt);
-            continue;
-        }
-	
-        if (strcmp(cmd, "showwordbeginnings") == 0) {
-            showwordbeginnings(txt);
-            continue;
-        }
-
-        if(strcmp(cmd, "m") == 0) {
+	if(strcmp(cmd, "m") == 0) {
 	    arg = strtok(NULL, " \n");
 	    second_arg = strtok(NULL, " \n");
             if (arg == NULL || second_arg == NULL) {
                 fprintf(stderr, "Usage: m line_number position\n");
             } else {
-
 		m(txt, atoi(arg), atoi(second_arg));
+		show(txt);
             }
             continue;
         }
 
-        if (strcmp(cmd, "mcb") == 0) {
-            mcb(txt);
-            continue;
-        }
+	/* Команды типа show */
+	if (strcmp(cmd, "showrev") == 0) { showrev(txt); continue; }
+	if (strcmp(cmd, "shownonempty") == 0) { shownonempty(txt); continue; }
+        if (strcmp(cmd, "showupper") == 0) { showupper(txt); continue; }
+	if (strcmp(cmd, "showupfirst") == 0) { showupfirst(txt); continue; }
+	if (strcmp(cmd, "showodd") == 0) { showodd(txt); continue; }
+        if (strcmp(cmd, "showreveven") == 0) { showreveven(txt); continue; }
+	if (strcmp(cmd, "showdigitsonly") == 0){ showdigitsonly(txt); continue; }
+	if (strcmp(cmd, "showalphaonly") == 0) { showalpha(txt); continue; }
+	if (strcmp(cmd, "showclassified") == 0) { showclassified(txt); continue; }
+	if (strcmp(cmd, "shownumspaces") == 0) { shownumspaces(txt); continue; }
+	if (strcmp(cmd, "showtrimmedfromstart") == 0) { showtrimmedfromstart(txt); continue; }
+	if (strcmp(cmd, "showlastnonspace") == 0) { showlastnonspace(txt); continue; }
+	if (strcmp(cmd, "showwordbeginnings") == 0) { showwordbeginnings(txt); continue; }
 
-        if (strcmp(cmd, "r1e") == 0) {
-            r1e(txt);
-            continue;
-        }
+	/* Вторые команды */
+	if (strcmp(cmd, "mcb") == 0) { mcb(txt); continue; }
+	if (strcmp(cmd, "mwbb") == 0) { mwbb(txt); continue; }
+	if (strcmp(cmd, "mlb") == 0) { mlb(txt); continue; }
+        if (strcmp(cmd, "mle") == 0) { mle(txt); continue; }
 
-	if (strcmp(cmd, "rle") == 0) {
-            rle(txt);
-            continue;
-        }
-	
-        if (strcmp(cmd, "mle") == 0) {
-            mle(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "rch") == 0){
-	    rightcdel(txt);
-	    continue;
-	}
-	
-        if (strcmp(cmd, "ple") == 0) {
-            pr_righter(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "cn") == 0){
-	    cn(txt);
-	    continue;
-	}
-
-	 if (strcmp(cmd, "cp") == 0) {
-            cp(txt);
-            continue;
-        }
-	
-	if (strcmp (cmd, "mlb") == 0) {
-	    mlb(txt);
-	    continue;
-	}
-	
-        if (strcmp(cmd, "p1") == 0) {
-            if ((arg = strtok(NULL, "\n")) == NULL) {
-                fprintf(stderr, "Usage: p1 <string>\n");
-            } else {
-                strcat(arg, "\n");
-                place_first(txt, arg);
-            }
-            continue;
-        }
-	
 	if (strcmp(cmd, "mp") == 0) {
 	    arg = strtok(NULL, " \n");
 	    if (arg == NULL) {
@@ -215,7 +123,7 @@ int main()
             }
             continue;
         }
-
+	
         if(strcmp(cmd, "mnlb") == 0) {
             int status = move_next_line_begin(txt);
             switch (status) {
@@ -231,16 +139,7 @@ int main()
             }
             continue;
         }
-
-      	if (strcmp(cmd, "pn") == 0) {
-	    if ((arg = strtok(NULL, "\n")) == NULL){
-		fprintf(stderr,"Usage: line\n");
-		continue;
-	    } 
-	    pn(txt, arg);
-            continue;
-	}
-
+	
 	if (strcmp(cmd,"mklb")==0){
 	    if ((arg = strtok(NULL, " \n")) == NULL){
 		fprintf(stderr,"Usage: line number\n");
@@ -249,27 +148,40 @@ int main()
 	    mklb(txt, atoi(arg));
 	    continue;
 	}
-	
-        if (strcmp(cmd, "r1ne") == 0) {
-            r1ne(txt);
+
+        if (strcmp(cmd, "ple") == 0) { pr_righter(txt); continue; }
+	if (strcmp(cmd, "plb") == 0) { plb(txt); continue; }
+	if (strcmp(cmd, "rch") == 0) { rightcdel(txt); continue; }
+	if (strcmp(cmd, "rle") == 0) { rle(txt); continue; }
+
+        if (strcmp(cmd, "i") == 0) {
+            char *addstr = cmd + strlen(cmd) + 1;
+            if (addstr[strlen(addstr) - 1] == '\n')
+                addstr[strlen(addstr) - 1] = '\0';
+            if (*addstr == '\0') {
+                fprintf(stderr, "Usage: i textstring\n");
+            } else {
+                insert(txt, addstr);
+            }
             continue;
         }
 
-        if (strcmp(cmd, "cb") == 0) {
-            copy_begin(txt);
+	if (strcmp(cmd, "y") == 0) {
+            if ((arg = strtok(NULL, " \n")) == NULL) {
+                fprintf(stderr, "Usage: y line\n");
+            } else {
+                y(txt, arg);
+            }
             continue;
-        }
-	
-	if (strcmp(cmd, "j") == 0) {
-	    j(txt);
-            continue;
-        }
+        }	
 
-        if (strcmp(cmd, "rt") == 0) {
-            rt(txt);
-            continue;
-        }
-	
+	/* Третьи команды */
+        if (strcmp(cmd, "rt") == 0) { rt(txt); continue; }
+	if (strcmp(cmd, "rc") == 0) { rc(txt); continue; }
+	if (strcmp(cmd, "r1e") == 0) { r1e(txt); continue; }
+        if (strcmp(cmd, "r1ne") == 0) { r1ne(txt); continue; }
+	if (strcmp(cmd, "j") == 0) { j(txt); continue; }
+
         if(strcmp(cmd, "p") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
                 fprintf(stderr, "Usage: p line text\n");
@@ -294,64 +206,30 @@ int main()
             continue;
         }
 
-        if (strcmp(cmd, "i") == 0) {
-            /* Читаем все символы полсе i */
-            char *addstr = cmd + strlen(cmd) + 1;
-            if (addstr[strlen(addstr) - 1] == '\n')
-                addstr[strlen(addstr) - 1] = '\0';
-            /* Проверка на правильность использования */
-            if (*addstr == '\0') {
-                fprintf(stderr, "Usage: i textstring\n");
-            } else {
-                insert(txt, addstr);
-            }
-            continue;
-        }
-	
-	if (strcmp(cmd, "showclassified") == 0) {
-            showclassified(txt);
-            continue;
-	}
-	if (strcmp(cmd, "plb") == 0) {
-			plb(txt);
-			printf("\n");
-            continue;
-        }
-	if (strcmp(cmd, "s") == 0) {
-			s(txt);
-			printf("\n");
+      	if (strcmp(cmd, "pn") == 0) {
+	    if ((arg = strtok(NULL, "\n")) == NULL){
+		fprintf(stderr,"Usage: line\n");
+		continue;
+	    } 
+	    pn(txt, arg);
             continue;
 	}
 
-        if (strcmp(cmd, "ce") == 0) {
-            ce(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "y") == 0) {
-            if ((arg = strtok(NULL, " \n")) == NULL) {
-                fprintf(stderr, "Usage: y line\n");
-            } else {
-                y(txt, arg);
+        if (strcmp(cmd, "p1") == 0) {
+            if ((arg = strtok(NULL, "\n")) == NULL) {
+                fprintf(stderr, "Usage: p1 <string>\n");
+		continue;
             }
+            strcat(arg, "\n");
+            place_first(txt, arg);
             continue;
         }
 
-	if (strcmp(cmd, "shownonempty") == 0) {
-            shownonempty(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "mwbb") == 0) {
-            mwbb(txt);
-            continue;
-        }
-
-	if (strcmp(cmd, "rc") == 0) {
-            rc(txt);
-            continue;
-        }
-
+	if (strcmp(cmd, "s") == 0) { s(txt); continue; }
+	if (strcmp(cmd, "cn") == 0) { cn(txt); show(txt); continue; }
+	if (strcmp(cmd, "cp") == 0) { cp(txt); show(txt); continue; }		
+        if (strcmp(cmd, "cb") == 0) { copy_begin(txt); show(txt); continue; }
+        if (strcmp(cmd, "ce") == 0) { ce(txt); continue; }
 
         /* Если команда не известна */
         fprintf(stderr, "Unknown command: %s\n", cmd);

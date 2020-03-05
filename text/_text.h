@@ -56,8 +56,7 @@ typedef struct _list {
 
 typedef struct _list *text;
 
+/* Некоторые функции */
 node* get_line(text txt, int num);
-void changeline(node* line, text txt);
-node* getcursorl(text txt);
 
 #endif

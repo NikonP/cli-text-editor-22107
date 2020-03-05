@@ -80,6 +80,7 @@ void remove_all(text txt);
  */
 int m(text txt, int line_num, int cursor_pos);
 
+/* Микс функций */
 int move_next_line_begin(text txt);
 int add_line_after(text txt, int line_number, char* to_add);
 int mp(text txt, int arg1);
@@ -90,26 +91,27 @@ void y_line(text txt, const char *contents);
 void line_to_end(text txt);
 void mwbb(text txt);
 void rc(text txt);
+void cp(text txt);
+void cn(text txt);
 void rightcdel(text txt);
+int get_line_cursor (text txt);
+void move_line(text txt, int old_pos, int new_pos);
+void add_begin(text txt, char* newline);
+void pn(text txt, char* mystring);
+int move_cursor(text txt, unsigned int line_cursor, unsigned int position_cursor);
+void process_mcb(text txt);
+void process_rt(text txt);
+int delete_line(text txt, unsigned int line_number);
+int search_empty_line(text txt);
 void get_current(
     text txt,
     void (*process)(int index, char *contents, int cursor, void *data),
     void *data
     );
-int  get_line_cursor (text txt);
-void move_line(text txt, int old_pos, int new_pos);
-void add_begin(text txt, char* newline);
-void pn(text txt, char* mystring);
-int move_cursor(text txt, unsigned int line_cursor, unsigned int position_cursor);
 void process_showrev(
     text txt,
     void (*process)(int index, char *contents, int cursor, void *data),
     void *data
     );
-void process_mcb(text txt);
-void process_rt(text txt);
-int delete_line(text txt, unsigned int line_number);
-void swap(text txt);
-int search_empty_line(text txt);
 
 #endif
