@@ -110,5 +110,6 @@ void process_mcb(text txt);
 void process_rt(text txt);
 int delete_line(text txt, unsigned int line_number);
 void swap(text txt);
+int search_empty_line(text txt);
 
 #endif
