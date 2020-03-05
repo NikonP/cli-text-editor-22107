@@ -21,10 +21,10 @@ release: editor
 
 # List sources and target object files
 SOURCES = $(wildcard *.c)
-OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
+OBJECTS = $(patsubst %.c, build/%.o, $(SOURCES))
 
 # Build editor
-editor: $(OBJECTS) text
+editor: build/$(OBJECTS) text
 	$(LD) $(LDFLAGS) -o editor $(OBJECTS) -L./text -ltext
 
 # Build text processing library
@@ -33,11 +33,11 @@ text:
 	cd text && $(MAKE) $(MFLAGS)
 
 # Compile editor
-%.o: %.c text/text.h
+build/%.o: %.c text/text.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Clean phony target to remove binary files
 .PHONY: clean
 clean:
 	cd text && $(MAKE) $@
-	rm -rf *.o editor
+	rm -rf *~ build/*.o editor

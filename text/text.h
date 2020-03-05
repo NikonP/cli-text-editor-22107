@@ -1,5 +1,5 @@
 /**
-0;136;0c * text.h -- внешний интерфейс библиотеки для работы с текстом
+ * text.h -- внешний интерфейс библиотеки для работы с текстом
  *
  * Copyright (c) 2017, Alexander Borodin <aborod@petrsu.ru>
  *
@@ -99,10 +99,13 @@ void get_current(
 void move_line(text txt, int old_pos, int new_pos);
 void add_begin(text txt, char* newline);
 void pn(text txt, char* mystring);
-void move(
+void move(text txt, int line_cursor, int position_cursor);
+void process_showrev(
     text txt,
-    int line_cursor,
-    int position_cursor
+    void (*process)(int index, char *contents, int cursor, void *data),
+    void *data
     );
+void process_mcb(text txt);
+void process_rt( text txt );
 
 #endif

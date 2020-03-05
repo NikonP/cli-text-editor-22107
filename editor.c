@@ -84,7 +84,12 @@ int main()
             continue;
         }
 
-        if (strcmp(cmd, "showupfirst") == 0) {
+	if (strcmp(cmd, "showrev") == 0) {
+            showrev(txt);
+            continue;
+        }
+
+	if (strcmp(cmd, "showupfirst") == 0) {
             showupfirst(txt);
             continue;
         }
@@ -131,6 +136,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "mcb") == 0) {
+            mcb(txt);
+            continue;
+        }
+	
         if (strcmp(cmd, "mle") == 0) {
             mle(txt);
             continue;
@@ -210,6 +220,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "rt") == 0) {
+            rt(txt);
+            continue;
+        }
+	
         if(strcmp(cmd, "p") == 0) {
             if ((arg = strtok(NULL, " \n")) == NULL) {
                 fprintf(stderr, "Usage: p line text\n");

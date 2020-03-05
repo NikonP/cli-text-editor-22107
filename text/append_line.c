@@ -36,7 +36,7 @@ void append_line(text txt, const char *contents)
 
     /* Устанавливаем курсор в конец добавленной строки */
     txt->cursor->line = txt->end;
-    txt->cursor->position = strlen(txt->end->contents);
+    txt->cursor->position = strlen(txt->end->contents) - 1;
 }
 
 

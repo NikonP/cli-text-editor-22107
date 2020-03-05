@@ -15,11 +15,11 @@
  * корректно подавляя предупреждение вида "unused parameter" */
 #define UNUSED(x) (void)(x)
 
-
 void show(text txt);
 void load(text txt, char *filename);
 void save(text txt, char *filename);
 
+void showrev(text txt);
 void showupfirst(text txt);
 void showodd(text txt);
 void showreveven(text txt);
@@ -41,6 +41,8 @@ void copy_begin(text txt);
 void pr_righter(text txt);
 void place_first(text txt, char* line);
 void mklb(text txt,int line);
+void mcb(text txt);
+void rt(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);

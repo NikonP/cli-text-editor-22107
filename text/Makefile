@@ -18,18 +18,18 @@ release: libtext.a
 
 # List sources and target object files 
 SOURCES = $(wildcard *.c)
-OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
+OBJECTS = $(patsubst %.c, ../build/%.o, $(SOURCES))
 
 # Add all object files into the library
 libtext.a: $(OBJECTS)
 	ar -rcs $@ $^
 
 # Compile all C sources into separate object files
-%.o: %.c _text.h
+../build/%.o: %.c _text.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Clean phony target to remove binary files
 .PHONY: clean
 clean:
-	rm -rf *.a *.o
+	rm -rf *~ *.a *.o
 
