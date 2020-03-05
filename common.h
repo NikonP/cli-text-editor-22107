@@ -26,6 +26,7 @@ void showodd(text txt);
 void showreveven(text txt);
 void showclassified(text txt);
 void shownumspaces(text txt);
+void showtrimmedfromstart(text txt);
 void showlastnonspace(text txt);
 void showdigitsonly(text txt);
 void showalpha(text txt);
@@ -47,6 +48,8 @@ void rt(text txt);
 void cn(text txt);
 void mlb(text txt);
 void r1e(text txt);
+void rle(text txt);
+void cp(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);

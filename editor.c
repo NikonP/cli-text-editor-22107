@@ -123,6 +123,11 @@ int main()
             shownumspaces(txt);
             continue;
         }
+
+	if (strcmp(cmd, "showtrimmedfromstart") == 0) {
+            showtrimmedfromstart(txt);
+            continue;
+        }
 	
 	if (strcmp(cmd, "showalphaonly") == 0) {
             showalpha(txt);
@@ -151,8 +156,13 @@ int main()
             continue;
         }
 
-        if (strcmp (cmd, "r1e") == 0) {
+        if (strcmp(cmd, "r1e") == 0) {
             r1e(txt);
+            continue;
+        }
+
+	if (strcmp(cmd, "rle") == 0) {
+            rle(txt);
             continue;
         }
 	
@@ -176,6 +186,11 @@ int main()
 	    continue;
 	}
 
+	 if (strcmp(cmd, "cp") == 0) {
+            cp(txt);
+            continue;
+        }
+	
 	if (strcmp (cmd, "mlb") == 0) {
 	    mlb(txt);
 	    continue;

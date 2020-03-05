@@ -109,5 +109,6 @@ void process_showrev(
 void process_mcb(text txt);
 void process_rt(text txt);
 int delete_line(text txt, unsigned int line_number);
+void swap(text txt);
 
 #endif
