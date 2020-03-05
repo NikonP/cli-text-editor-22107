@@ -10,8 +10,8 @@
 * showupfirst - c капитализацией символов после пробела
 * showodd - только нечетные строки
 * showreveven - в обратном порядке без нечетных строк
-* showalphaonly - опуская небуквенные символы
 * showdigitsonly - только цифры
+* showalphaonly - опуская небуквенные символы
 * showclassified - с заменой всех буквенные символов звездочками
 * shownumspaces - вывод числа пробелов в каждой строке
 * showtrimmedfromstart - без ведущих пробелов
