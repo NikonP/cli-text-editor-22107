@@ -1,5 +1,5 @@
 /**
- * text.h -- внешний интерфейс библиотеки для работы с текстом
+0;136;0c * text.h -- внешний интерфейс библиотеки для работы с текстом
  *
  * Copyright (c) 2017, Alexander Borodin <aborod@petrsu.ru>
  *
@@ -91,5 +91,11 @@ void line_to_end(text txt);
 void mwbb(text txt);
 void rc(text txt);
 void rightcdel(text txt);
+void get_current(
+    text txt,
+    void (*process)(int index, char *contents, int cursor, void *data),
+    void *data
+    );
+void move_line(text txt, int old_pos, int new_pos);
 
 #endif

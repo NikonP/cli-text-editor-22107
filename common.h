@@ -25,14 +25,17 @@ void showodd(text txt);
 void showreveven(text txt);
 void showclassified(text txt);
 void shownumspaces(text txt);
+void showlastnonspace(text txt);
 void showwordbeginnings(text txt);
 
 int getlength(text txt);
 void mle(text txt);
 void plb(text txt);
 void y(text txt, char *line);
+void insert(text txt, char *contents);
 void ce(text txt);
 void shownonempty(text txt);
+void copy_begin(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);

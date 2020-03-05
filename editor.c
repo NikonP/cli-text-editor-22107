@@ -1,5 +1,5 @@
 /**
- * editor.c -- строковый текстовый редактор
+0;136;0c * editor.c -- строковый текстовый редактор
  *
  * Copyright (c) 2020, Alexander Borodin <aborod@petrsu.ru>
  *                     Nikon Podgorny <podgorny@cs.petrsu.ru>
@@ -99,6 +99,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "showlastnonspace") == 0) {
+            showlastnonspace(txt);
+            continue;
+        }
+	
         if (strcmp(cmd, "showwordbeginnings") == 0) {
             showwordbeginnings(txt);
             continue;
@@ -151,6 +156,11 @@ int main()
             r1ne(txt);
             continue;
         }
+
+        if (strcmp(cmd, "cb") == 0) {
+            copy_begin(txt);
+            continue;
+        }
 	
 	if (strcmp(cmd, "j") == 0) {
 	    j(txt);
@@ -180,6 +190,21 @@ int main()
             }
             continue;
         }
+
+        if (strcmp(cmd, "i") == 0) {
+            /* Читаем все символы полсе i */
+            char *addstr = cmd + strlen(cmd) + 1;
+            if (addstr[strlen(addstr) - 1] == '\n')
+                addstr[strlen(addstr) - 1] = '\0';
+            /* Проверка на правильность использования */
+            if (*addstr == '\0') {
+                fprintf(stderr, "Usage: i textstring\n");
+            } else {
+                insert(txt, addstr);
+            }
+            continue;
+        }
+	
 	if (strcmp(cmd, "showclassified") == 0) {
             showclassified(txt);
             continue;
