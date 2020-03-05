@@ -45,6 +45,8 @@ void mklb(text txt,int line);
 void mcb(text txt);
 void rt(text txt);
 void cn(text txt);
+void mlb(text txt);
+void r1e(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);

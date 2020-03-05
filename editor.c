@@ -89,6 +89,11 @@ int main()
             continue;
         }
 
+        if (strcmp(cmd, "showupper") == 0) {
+            showupper(txt);
+            continue;
+        }
+	
 	if (strcmp(cmd, "showupfirst") == 0) {
             showupfirst(txt);
             continue;
@@ -113,6 +118,11 @@ int main()
 	    showdigitsonly(txt);
 	    continue;
 	}
+
+	if (strcmp(cmd, "shownumspaces") == 0) {
+            shownumspaces(txt);
+            continue;
+        }
 	
 	if (strcmp(cmd, "showalphaonly") == 0) {
             showalpha(txt);
@@ -140,17 +150,37 @@ int main()
             mcb(txt);
             continue;
         }
+
+        if (strcmp (cmd, "r1e") == 0) {
+            r1e(txt);
+            continue;
+        }
 	
         if (strcmp(cmd, "mle") == 0) {
             mle(txt);
             continue;
         }
 
+	if (strcmp(cmd, "rch") == 0){
+	    rightcdel(txt);
+	    continue;
+	}
+	
         if (strcmp(cmd, "ple") == 0) {
             pr_righter(txt);
             continue;
         }
 
+	if (strcmp(cmd, "cn") == 0){
+	    cn(txt);
+	    continue;
+	}
+
+	if (strcmp (cmd, "mlb") == 0) {
+	    mlb(txt);
+	    continue;
+	}
+	
         if (strcmp(cmd, "p1") == 0) {
             if ((arg = strtok(NULL, "\n")) == NULL) {
                 fprintf(stderr, "Usage: p1 <string>\n");
