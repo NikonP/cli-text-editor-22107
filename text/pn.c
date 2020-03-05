@@ -4,7 +4,7 @@ void pn(text txt, char* mystring)
 {
        
 	node *curnd = txt->cursor->line;
-	
+
 	node *nd = (node *) malloc(sizeof(node));
 	node *curnd1 = curnd->next;
 
@@ -12,10 +12,12 @@ void pn(text txt, char* mystring)
 	
 	nd->previous = curnd;
 
-	curnd->next = nd;
-		
-	nd->next->previous = nd;
-
+	curnd->next = nd;	
+	if(curnd != txt->end)
+		nd->next->previous = nd;
+	else
+		txt->end = nd;
 	strcpy(nd->contents, mystring);
 	strcat(nd->contents, "\n");
+	txt->length++;
 }

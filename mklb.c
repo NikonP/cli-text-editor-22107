@@ -1,4 +1,4 @@
- /**
+/**
  * mklb.c -- функция перемещения курсора в начало заданной строки
  * 
  * Copyright (c) 2020, Svetova Kristina  <ksvetova@cs.petrsu.ru>
@@ -11,7 +11,11 @@
 #include "common.h"
 #include "text/text.h"
 
-void mklb(text txt,int line)
-{
-	move(txt, line, 0);
+
+
+void mklb(text txt, int line)
+{  
+    move_cursor(txt, line, 0);
 }
+
+

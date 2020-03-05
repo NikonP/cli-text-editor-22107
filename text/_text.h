@@ -58,5 +58,6 @@ typedef struct _list *text;
 
 node* get_line(text txt, int num);
 void changeline(node* line, text txt);
+node* getcursorl(text txt);
 
 #endif

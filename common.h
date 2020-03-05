@@ -20,6 +20,7 @@ void load(text txt, char *filename);
 void save(text txt, char *filename);
 
 void showrev(text txt);
+void showupper(text txt);
 void showupfirst(text txt);
 void showodd(text txt);
 void showreveven(text txt);
@@ -43,6 +44,7 @@ void place_first(text txt, char* line);
 void mklb(text txt,int line);
 void mcb(text txt);
 void rt(text txt);
+void cn(text txt);
 
 #define CURSOR_CHAR '|'
 char* set_cursor(char* contents, int cursor);
