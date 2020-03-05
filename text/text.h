@@ -90,5 +90,6 @@ void y_line(text txt, const char *contents);
 void line_to_end(text txt);
 void mwbb(text txt);
 void rc(text txt);
+void rightcdel(text txt);
 
 #endif

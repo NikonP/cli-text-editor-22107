@@ -24,6 +24,7 @@ void showupfirst(text txt);
 void showodd(text txt);
 void showreveven(text txt);
 void showclassified(text txt);
+void shownumspaces(text txt);
 void showwordbeginnings(text txt);
 
 int getlength(text txt);

@@ -57,5 +57,6 @@ typedef struct _list {
 typedef struct _list *text;
 
 node* get_line(text txt, int num);
+void changeline(node* line, text txt);
 
 #endif

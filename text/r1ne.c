@@ -23,19 +23,18 @@ void r1ne(text txt)
 	}
 	else {
 		node *current = txt->begin;
-		// Если первая строка не пустая
-		if ((strlen(current->contents) > 1) && (txt->length > 1)) {
-			if (txt->cursor->line == txt->begin) txt->cursor->line = current->next;
-			free(current);
-			txt->begin = current->next;
-		
+		// Если текст состоит из одной непустой строки
+		if ((strlen(current->contents) > 1) && (txt->length == 1)) {
+			txt->begin = txt->end = NULL;
+			txt->length = 0;
+			free(current);	
 		}
 		else {
-			// Если текст состоит из одной непустой строки
-			if ((strlen(current->contents) > 1) && (txt->length == 1)) {
+			// Если первая строка не пустая и не единственная
+			if ((strlen(current->contents) > 1) && (txt->length > 1)) {
+				if (txt->cursor->line == txt->begin) txt->cursor->line = current->next;
 				free(current);
-				txt->begin = txt->end = NULL;
-				txt->length = 0;
+				txt->begin = current->next;
 			} 
 			else {
 				// Шагаем до непустой строки
@@ -48,20 +47,26 @@ void r1ne(text txt)
 				}
 				else {
 					if(current != txt->end) {	
-						if(txt->cursor->line == current) txt->cursor->line = current->next;
-						if(strlen(current->next->contents) == 1) txt->cursor->position = 1;
+						if(txt->cursor->line == current) {
+							txt->cursor->line = current->next;
+							if((long)txt->cursor->position > (long)strlen(current->next->contents)) {
+								txt->cursor->position = strlen(current->next->contents);
+							}
+						}
 						current->previous->next = current->next;
 						current->next->previous = current->previous;
 						free(current);
 					}
 					else {
-						txt->cursor->line = txt->end = current->previous;
 						txt->cursor->position = 1;
+						txt->cursor->line = txt->end = current->previous;
+						current->previous->next = NULL;
 						free(current);
-					}
+
+					}  
 				}
-			txt->length--;
 			}
+		txt->length--;
 		}
 	}
 }
