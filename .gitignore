@@ -54,3 +54,9 @@ dkms.conf
 
 # TXT
 *.txt
+
+# emacs backups
+*~
+
+# build
+editor
