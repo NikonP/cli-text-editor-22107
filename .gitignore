@@ -53,7 +53,7 @@ Mkfile.old
 dkms.conf
 
 # TXT
-*.txt
+# *.txt
 
 # emacs backups
 *~
