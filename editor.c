@@ -179,6 +179,17 @@ int main()
 
 	/* Третьи команды */
         if (strcmp(cmd, "rt") == 0) { rt(txt); continue; }
+
+      	if (strcmp(cmd, "rn") == 0) {
+	    if ((arg = strtok(NULL, "\n")) == NULL){
+		fprintf(stderr,"Usage: line\n");
+		continue;
+	    } 
+	    rn(txt, atoi(arg));
+	    show(txt);
+            continue;
+	}
+	
 	if (strcmp(cmd, "rc") == 0) { rc(txt); continue; }
 	if (strcmp(cmd, "r1e") == 0) { r1e(txt); continue; }
         if (strcmp(cmd, "r1ne") == 0) { r1ne(txt); continue; }

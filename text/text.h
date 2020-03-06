@@ -96,6 +96,7 @@ void rc(text txt);
 void cb(text txt);
 void cp(text txt);
 void cn(text txt);
+int rn(text txt, int index);
 void rightcdel(text txt);
 int get_line_cursor (text txt);
 void add_begin(text txt, char* newline);
