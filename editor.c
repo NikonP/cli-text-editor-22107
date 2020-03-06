@@ -228,7 +228,7 @@ int main()
 	if (strcmp(cmd, "s") == 0) { s(txt); continue; }
 	if (strcmp(cmd, "cn") == 0) { cn(txt); show(txt); continue; }
 	if (strcmp(cmd, "cp") == 0) { cp(txt); show(txt); continue; }		
-        if (strcmp(cmd, "cb") == 0) { copy_begin(txt); show(txt); continue; }
+        if (strcmp(cmd, "cb") == 0) { cb(txt); show(txt); continue; }
         if (strcmp(cmd, "ce") == 0) { ce(txt); continue; }
 
         /* Если команда не известна */

@@ -42,7 +42,6 @@ void plb(text txt);
 void y(text txt, char *line);
 void insert(text txt, char *contents);
 void ce(text txt);
-void copy_begin(text txt);
 void pr_righter(text txt);
 void place_first(text txt, char* line);
 void mklb(text txt,int line);
