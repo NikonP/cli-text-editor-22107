@@ -22,6 +22,7 @@ void save(text txt, char *filename);
 
 /* Функции типа show */
 void showrev(text txt);
+void showfirstwords(text txt);
 void shownonempty(text txt);
 void showupper(text txt);
 void showupfirst(text txt);
@@ -47,6 +48,7 @@ void place_first(text txt, char* line);
 void mklb(text txt,int line);
 void mcb(text txt);
 void rt(text txt);
+void mwef(text txt);
 void mlb(text txt);
 void r1e(text txt);
 void rle(text txt);

@@ -95,6 +95,7 @@ int main()
 
 	/* Команды типа show */
 	if (strcmp(cmd, "showrev") == 0) { showrev(txt); continue; }
+	if (strcmp(cmd, "showfirstwords") == 0) { showfirstwords(txt); continue; }
 	if (strcmp(cmd, "shownonempty") == 0) { shownonempty(txt); continue; }
         if (strcmp(cmd, "showupper") == 0) { showupper(txt); continue; }
 	if (strcmp(cmd, "showupfirst") == 0) { showupfirst(txt); continue; }
@@ -110,6 +111,7 @@ int main()
 
 	/* Вторые команды */
 	if (strcmp(cmd, "mcb") == 0) { mcb(txt); continue; }
+	if (strcmp(cmd, "mwef") == 0) { mwef(txt); continue; }
 	if (strcmp(cmd, "mwbb") == 0) { mwbb(txt); continue; }
 	if (strcmp(cmd, "mlb") == 0) { mlb(txt); continue; }
         if (strcmp(cmd, "mle") == 0) { mle(txt); continue; }
