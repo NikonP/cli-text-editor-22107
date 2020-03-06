@@ -32,7 +32,7 @@ static void showclassified_line(int index, char *contents, int cursor, void *dat
     UNUSED(data);
 
 	for(unsigned int i = 0; i < strlen(contents); i++){
-		if(contents[i] != ' ' && contents[i] != '\n') {
+	    if((contents[i] >= 65 && contents[i] <= 90) || (contents[i] >= 97 && contents[i] <= 122)) {
 			printf("*");
 		} else {
 			printf("%c", contents[i]);
