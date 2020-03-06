@@ -21,15 +21,20 @@ static node *create_node(const char *contents);
 int add_line_after(text txt, int line_number, char* to_add)
 {
     node* line = get_line(txt, line_number);
+
     if(line != NULL) {
         node* new_node = create_node(to_add);
+
         if(line->next) {
             new_node->next = line->next;
         }
+
         new_node->previous = line;
+
         if(line -> next) {
             line->next->previous = new_node;
         }
+
         line->next = new_node;
         txt->length++;
         return SUCCESS;
